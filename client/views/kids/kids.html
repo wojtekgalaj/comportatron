@@ -1,0 +1,13 @@
+<template name="kids">
+	<form>
+		<input type="text" name="kidsName" placeholder="Kid's Name"/>
+		<button type="submit">Add that kid.</button>
+	</form>
+	<h3>All the kids</h3>
+	<ul class="listOfKids">
+		{{#each allTheKids}}
+			<li>{{name}}<span class="text-button remove">remove</span>
+			<span class="text-button edit">edit</span></li>
+		{{/each}}
+	</ul>
+</template>
