@@ -1,17 +1,81 @@
-@import "partials/.baseLayout.styl"
-@import "partials/.typography.styl"
+@import "nib"
 
-
+global-reset()
 form()
+
+// ----------------------------------------------------
+.inner
+	center(600px)
+// ----------------------------------------------------
+
+
+
+// ------------------------------------
+// I temporarily move these styles here as having them in a partial necesitates changing this file
+
+body
+	font-family Verdana
+	font-size 16px
+
+a
+	text-decoration none
+
+h1, h2, h3, h4
+	font-weight normal
+
+h2
+	font-size 1.6rem
+	margin .5rem 0 1rem 0
+	
+
+header
+	.logo
+		font-size 2rem
+		margin 0 0 1rem 0
+// ------------------------------------
+
+// Errors
+.errors .alert
+	padding 1rem .8rem
+	background red
+	color white
+	font-size .9rem
+	margin .5rem 0
+	button
+		display none // Or i need to wire it up, doesnt do anything without bootstrap
 
 input
 	font-size .9rem
 	padding .5rem
 
-button
-	simple-button(color = red, size = 'medium')
+// Buttons
+#login-buttons
+	float right
+
+#login-dropdown-list
+	left -140px
+
+button, .button
+	simple-button()
+
+.bigLink
+	simple-button()
+	padding 2.5rem
+	font-size 2rem
+	width 33%
+	margin-top .5rem
+
+.kidLinks
+	margin-bottom 2rem
+
+.control
+	margin 1rem 0
+	button
+		margin auto
+		display block
 
 header
+	padding 1rem 0
 	background #333
 	color white
 	padding-bottom 1rem
@@ -19,14 +83,11 @@ header
 	border-bottom 5px solid white
 	a
 		margin 0 2rem 0 0
-		color #666
+		color #aaa
 		&:hover
 			color white
 
-nav
-	display none
+footer
+	padding 1rem 0
 
-.logo
-	column(3/4)
-.menu
-	column(1/4)
+

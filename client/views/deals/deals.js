@@ -1,11 +1,22 @@
-Meteor.subscribe('deals');
+Template.newDeal.events({
+	'submit form': function (event, template) {
+		event.preventDefault();
+		var to = $('.to').val(),
+				need = $('.need').val(),
+				kidId = Session.get('currentKidId');
 
-Template.overview.helpers({
+		if (!to || !need) {
+			Errors.throw('I need to know all the details :)');
+			return;
+		}
 
-})
-
-Template.overview.events({
-	'submit form': function () {
-		
+		Kids.update(
+			{_id: kidId},
+			{$addToSet: {deals: {
+				'to': to,
+				'need': need
+			}}}
+		);
+		Router.go('/kid/show/' + kidId);
 	}
 })

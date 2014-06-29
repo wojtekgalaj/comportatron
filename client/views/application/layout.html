@@ -1,24 +1,25 @@
 <template name="layout">
 	<header>
 		<div class="inner">
+			{{>loginButtons}}
 			<div class="logo">
 				<h1>
 					<a href="/">Comportatron</a>
 				</h1>
 			</div>
-			<div class="menu">
-				<button name="menu">MENU</button>
-			</div>
 		</div>
 		<div class="inner">
 			<nav>
-				<a href="kids">The Kids</a>
-				<a href="behaviours">The Behaviours</a>
+				<a href="/kids">The Kids</a>
+				<a href="/behaviours">The Behaviours</a>
 			</nav>
 		</div>
 	</header>
 	<div class="main">
 		<div class="inner">
+			<div class="errors">
+				{{>meteorErrors}}			
+			</div>
 			{{> yield}}
 		</div>
 	</div>

@@ -1,0 +1,31 @@
+<template name="showKid">
+	<div class="showKid">
+		<h2 class="currentScore">{{name}}'s current score is {{score}}</h2>
+		<div class="control">
+			<a href="/deal/new" class="button">New Deal</a>
+			<a href="/score/new" class="button">New Score</a>
+		</div>
+		<h2>The Deals</h2>
+		<ul class="list deals">
+			{{#each deals}}
+				<li class="{{dealStatus ..}}">In order to {{to}} I need at least {{need}} points. <button>remove</button></li>
+			{{/each}}
+		</ul>
+		<h2>Last scores</h2>
+		<ul class="list scores">
+			{{#each sortedScores}}
+				<li>{{whatHappened}} {{score}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="newKid">
+	<div class="newKid">
+		<p>Register a new kid</p>
+		<form>
+			<input type="text" name="name" placeholder="name" />
+			<button type="submit">Create</button>
+		</form>
+	</div>
+</template>

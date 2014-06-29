@@ -1,5 +1,7 @@
 Meteor.publish('usersKids', function () {
-  return Kids.find({});
+  return Kids.find({
+    createdBy: this.userId
+  });
 });
 
 Kids.allow({
@@ -7,6 +9,9 @@ Kids.allow({
     return true;
   },
   remove: function () {
+    return true;
+  },
+  update: function () {
     return true;
   }
 })

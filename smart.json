@@ -1,6 +1,8 @@
 {
   "packages": {
     "iron-router": {},
-    "stylus-multi": {}
+    "stylus-multi": {},
+    "meteor-errors": {},
+    "errors": {}
   }
 }

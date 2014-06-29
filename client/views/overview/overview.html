@@ -1,20 +1,14 @@
 <template name="overview">
-	{{#each allTheKids}}
-		<section>
-			<h2>{{name}}</h2>
-			<button name="button">SCORE</button>
-			<p>Current score is {{score}}</p>
-			<div class="dealInputs">
-				<input type="text" name="to" class="to">
-				<input type="text" name="need" class="need">
-			</div>
-			<button name="button">MAKE A DEAL</button>
-			{{#each deals}}
-				<p class="{{dealStatus ..}}">
-					To be able to <b>{{to}}</b> i must have at least <b>{{need}}</b>
-					points.
-				</p>
+	{{#if currentUser}}
+		<div class="kidLinks">
+			{{#each allTheKids}}
+				<a class="bigLink" href="/kid/show/{{_id}}">{{name}}</a>
 			{{/each}}
-		</section>
-	{{/each}}
+		</div>
+		<div class="control">
+			<a href="/kid/new" class="button addKid">Add new kid</a>
+		</div>
+	{{else}}
+		<h1>You need to log in</h1>
+	{{/if}}
 </template>

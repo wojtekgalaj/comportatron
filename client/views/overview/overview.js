@@ -4,12 +4,8 @@ Template.overview.helpers({
 	},
 	'allTheBehaviours': function () {
 		return Behaviours.find();
-	},
-	'dealStatus': function (kidModel) {
-		var isReqMet = kidModel.score >= this.need;
-
-		return isReqMet ? 'reqMet' : 'reqNotMet'
 	}
+	
 })
 
 Template.overview.events({
