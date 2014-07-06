@@ -5,7 +5,8 @@ Template.newScore.events({
 				$button = $(ev.currentTarget),
 				content = $button.html(),
 				increaseBy = parseInt(content, 10)
-				whatHappened = $('.whatHappened').val();
+				whatHappened = $('.whatHappened').val(),
+				when = moment().calendar();
 
 		if (!whatHappened) {
 			Errors.throw('What has happened?');
@@ -22,7 +23,8 @@ Template.newScore.events({
 			{$addToSet: {
 				scores: {
 					whatHappened: whatHappened,
-					score: increaseBy
+					score: increaseBy,
+					when: when
 				}
 			}}
 		);

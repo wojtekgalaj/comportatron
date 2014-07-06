@@ -3,6 +3,8 @@
     "iron-router": {},
     "stylus-multi": {},
     "meteor-errors": {},
-    "errors": {}
+    "errors": {},
+    "moment": {},
+    "i18n-easy": {}
   }
 }

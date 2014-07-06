@@ -5,7 +5,9 @@
       "iron-router": {},
       "stylus-multi": {},
       "meteor-errors": {},
-      "errors": {}
+      "errors": {},
+      "moment": {},
+      "i18n-easy": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +29,16 @@
         "git": "https://github.com/tmeasday/meteor-errors.git",
         "tag": "v0.2.1",
         "commit": "f2af03510a9e3d9952601f5f091aa76bfbcbf224"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      },
+      "i18n-easy": {
+        "git": "https://github.com/janouma/i18n-easy.git",
+        "tag": "v0.1.5",
+        "commit": "324e522746a0823466b948dedbc13b2cb083ea64"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

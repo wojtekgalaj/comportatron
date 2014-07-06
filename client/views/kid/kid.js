@@ -6,11 +6,11 @@ Template.showKid.helpers({
 	},
 
 	sortedScores: function () {
-		console.log('sorted ', this);
 		if (!this.scores) return;
 		return this.scores.reverse();
 	}
 })
+
 
 Template.showKid.events({
 	'click .deals button': function () {
@@ -54,5 +54,30 @@ Template.newKid.events({
 			scores: []
 		});
 		Router.go('overview');
+	}
+})
+
+Template.editKid.events({
+	'click .delete': function () {
+		if (confirm('Are you sure you want to remove ' + this.name + ' from the app?')) {
+			Kids.remove({_id: this._id});
+			Router.go('/')
+		}
+	},
+	'submit form': function (ev) {
+		ev.preventDefault();
+		var newName = $('[name="name"]').val(),
+				currentKidId = Session.get('currentKidId');
+
+		if (! newName) {
+			Errors.throw('There is no new name to set genious :)');
+			return;
+		}
+		Kids.update(
+			{_id: currentKidId},
+			{$set: {name: newName}}
+		)
+
+
 	}
 })
