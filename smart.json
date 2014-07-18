@@ -6,6 +6,7 @@
     "errors": {},
     "moment": {},
     "i18n-easy": {},
-    "autocomplete": {}
+    "autocomplete": {},
+    "autocompletion": {}
   }
 }

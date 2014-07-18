@@ -39,17 +39,27 @@ Template.newScore.events({
   }
 })
 
-Template.newScore.helpers({
-  settings: function () {
-    return {
-     position: "top",
-     limit: 5,
-     rules: [
-       {
-         collection: Rules,
-         field: "thisAction"
-       }
-     ]
-    }
+Template.searchScores.rendered = function () {
+   AutoCompletion.init("input#searchScores");
+}
+
+Template.searchScores.events = {
+  'keyup input#searchScores': function () {
+    AutoCompletion.autocomplete({
+      element: 'input#searchScores',       // DOM identifier for the element
+      collection: Rules,              // MeteorJS collection object
+      field: 'thisAction',                    // Document field name to search for
+      limit: 0,                         // Max number of elements to show
+      sort: { name: 1 }});              // Sort object to filter results with
+      //filter: { 'gender': 'female' }}); // Additional filtering
   }
-});
+}
+
+
+
+
+
+
+
+
+

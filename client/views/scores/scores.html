@@ -3,11 +3,13 @@
     <h2>What has happened.</h2>
     <p>Implement a type ahead yoke and grab data from the rules collection.</p>
 		<form>
-			
-			{{> inputAutocomplete settings=settings name="situation"  placeholder="What has happened?"}}
-
+			{{>searchScores}}
 			<button type="submit">Register it.</button>
 		</form>
 		<p>{{rules}}</p>
 	</div>
+</template>
+
+<template name="searchScores">
+	<input type="text" id="searchScores">
 </template>

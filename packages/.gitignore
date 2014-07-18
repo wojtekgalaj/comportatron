@@ -17,3 +17,5 @@ i18n-easy
 /typeahead
 /autocomplete
 /caret-position
+/autocompletion
+/jquery-ui
