@@ -26,6 +26,9 @@ h1, h2, h3, h4
 h2
 	font-size 1.6rem
 	margin .5rem 0 1rem 0
+
+p
+	margin 0 0 1rem 0
 	
 
 header
@@ -58,6 +61,14 @@ input
 button, .button
 	simple-button()
 
+button[type=submit]
+	margin 1rem auto
+	clear both
+	display block
+	width 20rem
+	text-align center
+
+
 .bigLink
 	simple-button()
 	padding 2.5rem
@@ -86,6 +97,10 @@ header
 		color #aaa
 		&:hover
 			color white
+
+#login-dropdown-list a:hover
+	color black
+
 
 footer
 	padding 1rem 0

@@ -1,0 +1,22 @@
+<template name="rules">
+  <div class="rules">
+    <h2>Set the rules.</h2>
+    <form>
+      <input type="text" name="thisAction" placeholder="Doing this results in">
+      <input type="text" name="isWorth" placeholder="points.">
+      <button type="submit">Agree.</button>
+    </form>
+    <p>These are the rules you have set so far</p>
+    <ul class="ruleList">
+      {{#each allRules}}
+        {{>rule}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="rule">
+  <li>
+    <span class="thisAction">{{thisAction}}</span> <span class="isWorth">{{isWorth}}</span>
+  </li>
+</template>

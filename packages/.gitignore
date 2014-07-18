@@ -10,3 +10,10 @@ meteor-errors
 errors
 moment
 i18n-easy
+/meteor-errors
+/errors
+/moment
+/i18n-easy
+/typeahead
+/autocomplete
+/caret-position

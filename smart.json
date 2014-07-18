@@ -5,6 +5,7 @@
     "meteor-errors": {},
     "errors": {},
     "moment": {},
-    "i18n-easy": {}
+    "i18n-easy": {},
+    "autocomplete": {}
   }
 }

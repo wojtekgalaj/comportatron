@@ -1,18 +1,13 @@
 <template name="newScore">
 	<div class="newScore">
-    <h2>Explain what has happened and choose a score for the action.</h2>
+    <h2>What has happened.</h2>
+    <p>Implement a type ahead yoke and grab data from the rules collection.</p>
 		<form>
-			<input class="whatHappened" type="text" name="whatHappened" placeholder="What has happened?"/>
-			<ul class="points">
-				<li class="negative"><button>-10</button></li>
-				<li class="negative"><button>-5</button></li>
-				<li class="negative"><button>-3</button></li>
-				<li class="negative"><button>-1</button></li>
-				<li class="positive"><button>+1</button></li>
-				<li class="positive"><button>+3</button></li>
-				<li class="positive"><button>+5</button></li>
-				<li class="positive"><button>+10</button></li>
-			</ul>
+			
+			{{> inputAutocomplete settings=settings name="situation"  placeholder="What has happened?"}}
+
+			<button type="submit">Register it.</button>
 		</form>
+		<p>{{rules}}</p>
 	</div>
 </template>
