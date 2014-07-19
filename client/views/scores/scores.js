@@ -50,8 +50,11 @@ Template.searchScores.events = {
       collection: Rules,              // MeteorJS collection object
       field: 'thisAction',                    // Document field name to search for
       limit: 0,                         // Max number of elements to show
-      sort: { name: 1 }});              // Sort object to filter results with
-      //filter: { 'gender': 'female' }}); // Additional filtering
+      sort: { name: 1 }
+    });              // Sort object to filter results with
+  },
+  'change input#searchScores': function () {
+    console.log('this ', this);
   }
 }
 

@@ -8,7 +8,6 @@
       "errors": {},
       "moment": {},
       "i18n-easy": {},
-      "autocomplete": {},
       "autocompletion": {}
     },
     "packages": {
@@ -42,11 +41,6 @@
         "tag": "v0.1.5",
         "commit": "324e522746a0823466b948dedbc13b2cb083ea64"
       },
-      "autocomplete": {
-        "git": "https://github.com/mizzao/meteor-autocomplete.git",
-        "tag": "v0.4.5",
-        "commit": "48a706f0055939ac9e05dd619ad6d4df3dcc237d"
-      },
       "autocompletion": {
         "git": "https://github.com/sebdah/meteor-autocompletion.git",
         "tag": "v0.1.4",
@@ -56,11 +50,6 @@
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
-      },
-      "caret-position": {
-        "git": "https://github.com/StockBase/meteor-caret-position.git",
-        "tag": "v2.1.0-3",
-        "commit": "6028cf980f62cbf72cb2ea527091a3a31f87b8a7"
       },
       "jquery-ui": {
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
