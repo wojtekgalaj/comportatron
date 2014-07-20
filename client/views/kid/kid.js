@@ -51,7 +51,7 @@ Template.newKid.events({
 			bootstrap: false,
 			score: 0,
 			deals: [],
-			scores: []
+			scoredRules: []
 		});
 		Router.go('overview');
 	}

@@ -1,50 +1,41 @@
-Template.newScore.events({
-  'submit form': function (ev) {
-    ev.preventDefault();
-    return;
-    var kidId = Session.get('currentKidId'),
-        $button = $(ev.currentTarget),
-        content = $button.html(),
-        increaseBy = parseInt(content, 10)
-        whatHappened = $('.whatHappened').val(),
-        when = moment().calendar();
 
-    if (!whatHappened) {
-      Errors.throw('What has happened?');
-      return;
-    }
-
-    Kids.update(
-      {_id: kidId},
-      {$inc: {score: increaseBy}}
-    );
-
-    Kids.update(
-      {_id: kidId},
-      {$addToSet: {
-        scores: {
-          whatHappened: whatHappened,
-          score: increaseBy,
-          when: when
-        }
-      }}
-    );
-
-    Behaviours.insert({
-      whatHappened: whatHappened,
-      score: increaseBy
-    });
-
-    Router.go('/kid/show/' + Session.get('currentKidId'));
-  }
-})
 
 Template.searchScores.rendered = function () {
    AutoCompletion.init("input#searchScores");
 }
 
+function addScoreByDescription (description) {
+  var kidId = Session.get('currentKidId'),
+      userId = Meteor.userId(),
+      theRule = Rules.findOne({createdBy: userId, thisAction: description}),
+      ruleScore = theRule.isWorth,
+      metaData = {
+        createdAt: moment() 
+      }
+  theRule = _.extend(theRule, metaData);
+  console.log('numeriCValue', ruleScore);      
+  console.log('value', description);      
+  Kids.update(
+    {_id: kidId},
+    {
+      $addToSet: {
+        scoredRules: theRule
+      },
+      $inc: {
+        score: ruleScore
+      }
+    }
+  );
+}
+
 Template.searchScores.events = {
-  'keyup input#searchScores': function () {
+  'keyup input#searchScores': function (ev) {
+    var keyCode = ev.keyCode,
+        description = ev.currentTarget.value;
+    if (keyCode === 13) {
+      addScoreByDescription(description)
+    }
+
     AutoCompletion.autocomplete({
       element: 'input#searchScores',       // DOM identifier for the element
       collection: Rules,              // MeteorJS collection object
@@ -52,9 +43,6 @@ Template.searchScores.events = {
       limit: 0,                         // Max number of elements to show
       sort: { name: 1 }
     });              // Sort object to filter results with
-  },
-  'change input#searchScores': function () {
-    console.log('this ', this);
   }
 }
 
