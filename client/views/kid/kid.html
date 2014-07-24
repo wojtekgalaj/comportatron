@@ -14,8 +14,8 @@
 		</ul>
 		<h2>Last scores</h2>
 		<ul class="list scores">
-			{{#each sortedScores}}
-				<li><span class="what">{{whatHappened}}</span><span class="when">{{when}}</span><span class="score">{{score}}</span></li>
+			{{#each scoredRules}}
+				<li><span class="what">{{thisAction}}</span><span class="when">{{when}}</span><span class="score">{{isWorth}}</span></li>
 			{{/each}}
 		</ul>
 	</div>

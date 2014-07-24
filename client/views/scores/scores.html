@@ -4,10 +4,7 @@
     <h2>His current score is {{score}}</h2>
     <p>Only rules set previously are allowed.</p>
     <p>The idea is to be fair and transparent with the kid. Set the rules with him/her.</p>
-		<form>
-			{{>searchScores}}
-			<button type="submit">Register it.</button>
-		</form>
+		{{>searchScores}}
 	</div>
   {{#each scoredRules}}
     {{> latestScores}}
@@ -15,7 +12,10 @@
 </template>
 
 <template name="searchScores">
-	<input type="text" id="searchScores">
+  <form>
+  	<input type="text" id="searchScores">
+    <button type="submit">Register it.</button>
+  </form>
 </template>
 
 <template name="latestScores">

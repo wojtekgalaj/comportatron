@@ -5,16 +5,24 @@ Template.searchScores.rendered = function () {
 }
 
 function addScoreByDescription (description) {
+  if (!description) Errors.throw("bla")
   var kidId = Session.get('currentKidId'),
       userId = Meteor.userId(),
       theRule = Rules.findOne({createdBy: userId, thisAction: description}),
-      ruleScore = theRule.isWorth,
+      ruleScore,
       metaData = {
         createdAt: moment() 
       }
+
+  if (!theRule) {
+    Errors.throw("I dont know this rule.");
+    return;
+  }
+
+  ruleScore = theRule.isWorth;
+  
   theRule = _.extend(theRule, metaData);
-  console.log('numeriCValue', ruleScore);      
-  console.log('value', description);      
+
   Kids.update(
     {_id: kidId},
     {
@@ -26,9 +34,20 @@ function addScoreByDescription (description) {
       }
     }
   );
+  Router.go('/kid/show/' + kidId)
 }
 
 Template.searchScores.events = {
+  'submit form': function (ev) {
+    ev.preventDefault();
+    var description = $('#searchScores').val();
+
+    if (!description) {
+      Errors.throw("Add a description yo!");
+      return;
+    }
+    addScoreByDescription(description);
+  },
   'keyup input#searchScores': function (ev) {
     var keyCode = ev.keyCode,
         description = ev.currentTarget.value;
