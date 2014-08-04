@@ -1,4 +1,9 @@
 Template.showKid.helpers({
+	deals: function () {
+		return Deals.find(
+			{createdBy: Meteor.userId()}
+		)
+	},
 	dealStatus: function (kidModel) {
 		var isReqMet = kidModel.score >= this.need;
 
@@ -30,7 +35,7 @@ Template.newKid.events({
 	'submit form': function (ev) {
 		ev.preventDefault();
 		var name = $('[name="name"]').val(),
-				theId = Meteor.user()._id;
+				theId = Meteor.userId();
 
 		if (!name) {
 			Errors.throw('You need to specify a name.');

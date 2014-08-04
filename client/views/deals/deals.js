@@ -1,22 +1,25 @@
 Template.newDeal.events({
 	'submit form': function (event, template) {
 		event.preventDefault();
-		var to = $('.to').val(),
-				need = $('.need').val(),
-				kidId = Session.get('currentKidId');
+		var $to = $('.to'),
+				to = $to.val(),
+				$need = $('.need'),
+				need = $need.val(),
+				userId = Meteor.userId();
 
 		if (!to || !need) {
 			Errors.throw('I need to know all the details :)');
 			return;
 		}
 
-		Kids.update(
-			{_id: kidId},
-			{$addToSet: {deals: {
+		Deals.insert(
+			{
+				'createdBy': userId,
 				'to': to,
 				'need': need
-			}}}
+			}
 		);
-		Router.go('/kid/show/' + kidId);
+		$need.val('');
+		$to.val('');
 	}
 })
