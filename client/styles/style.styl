@@ -3,19 +3,19 @@
 global-reset()
 form()
 
-// ----------------------------------------------------
 .inner
 	center(600px)
-// ----------------------------------------------------
+	min-width 600px
 
-
-
-// ------------------------------------
-// I temporarily move these styles here as having them in a partial necesitates changing this file
+@import 'partials/.colors.styl'
 
 body
-	font-family Verdana
+	font-family 'Lucida Grande'
 	font-size 16px
+	color c-accent
+
+b
+	color black
 
 a
 	text-decoration none
@@ -25,23 +25,19 @@ h1, h2, h3, h4
 
 h2
 	font-size 1.6rem
-	margin .5rem 0 1rem 0
+	margin .2rem 0 1rem 0
 
 p
 	margin 0 0 1rem 0
-	
 
-header
-	.logo
-		font-size 2rem
-		margin 0 0 1rem 0
-// ------------------------------------
+.right
+	text-align right
 
 // Errors
 .errors .alert
 	position fixed
 	padding 1rem .8rem
-	background red
+	background c-error
 	color white
 	font-size .9rem
 	margin .5rem 0
@@ -61,7 +57,7 @@ input
 	left -140px
 
 button, .button
-	simple-button()
+	simple-button(c-main)
 
 button[type=submit]
 	margin 1rem auto
@@ -70,12 +66,11 @@ button[type=submit]
 	width 20rem
 	text-align center
 
-
 .bigLink
-	simple-button()
+	simple-button(c-main)
 	padding 2.5rem
 	font-size 2rem
-	width 33%
+	display block
 	margin-top .5rem
 
 .kidLinks
@@ -83,28 +78,44 @@ button[type=submit]
 
 .control
 	margin 1rem 0
-	button
+	button, .button
 		margin auto
-		display block
+
+		&.add
+			background c-contrast
+			color white
 
 header
 	padding 1rem 0
-	background #333
+	background c-accent
 	color white
 	padding-bottom 1rem
 	margin-bottom 1rem
 	border-bottom 5px solid white
+	.logo
+		font-family courier
+		background c-main
+		color c-accent
+		padding .8rem 1rem
+		display block
+		width 20px
+		border-radius .5rem
+		font-size 2rem
+		margin auto
 	a
-		margin 0 2rem 0 0
-		color #aaa
 		&:hover
-			color white
+			text-decoration underline
+	nav
+		a
+			color c-main
+			margin-right 2rem
 
 #login-dropdown-list a:hover
 	color black
 
-
 footer
-	padding 1rem 0
+	border-top 1px solid c-main
+	margin 2rem 0
+	padding 2rem 0
 
 
