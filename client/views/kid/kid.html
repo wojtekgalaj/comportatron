@@ -1,18 +1,17 @@
 <template name="showKid">
 	<div class="showKid">
-		<h2 class="currentScore">{{name}}'s current score is {{score}}</h2>
+		<h2 class="currentScore">{{name}}'s current score is <span class="score">{{score}}</span></h2>
 		<div class="control">
-			<a href="/deal/new" class="button">New Deal</a>
-			<a href="/score/new" class="button">New Score</a>
+			<a href="/score/new" class="button">Update score</a>
 			<a href="/kid/edit" class="button edit">Edit Kid</a>
 		</div>
-		<h2>The Deals</h2>
+		<h2 class="deals header">The Deals</h2>
 		<ul class="list deals">
 			{{#each deals}}
-				<li class="{{dealStatus ..}}">In order to {{to}} I need at least {{need}} points. <button>remove</button></li>
+				<li class="{{dealStatus ..}}">In order to {{to}} I need at least {{need}} points. <button class="remove">remove</button></li>
 			{{/each}}
 		</ul>
-		<h2>Last scores</h2>
+		<h2 class="scores header">Last scores</h2>
 		<ul class="list scores">
 			{{#each scoredRules}}
 				<li><span class="what">{{thisAction}}</span><span class="when">{{when}}</span><span class="score">{{isWorth}}</span></li>

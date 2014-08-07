@@ -1,17 +1,19 @@
-<template name="deals">
-	<h1>Deals</h1>
-	<form>
-		<input class="theWhat" type="text" placeholder="To be able to">
-		<input class="theHowMuch" type="text" placeholder="I need">
-		<button type="submit">SAVE</button>
-	</form>
-</template>
-
 <template name="newDeal">
   <h2>Make a new deal</h2>
-	<form>
-		<input type="text" class="to" placeholder="In order to">
-		<input type="text" class="need" placeholder="I need">
-		<button type="submit">Cut the deal</button>
-	</form>
+  <form>
+    <input type="text" class="to" placeholder="In order to">
+    <input type="text" class="need" placeholder="I need">
+    <button type="submit">Cut the deal</button>
+  </form>
+      <p>These are the rules you have set so far</p>
+
+  <ul class="dealList createPageList">
+    {{#each deals}}
+      {{>deal}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="deal">
+  <li><span class="to description">{{to}}</span><span class="need points">{{need}}</span></li>
 </template>

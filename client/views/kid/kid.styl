@@ -5,7 +5,13 @@
 		width 35rem
 
 h2.currentScore
-	color red
+	span.score
+		font-size 3rem
+		display inline-block
+		background gold
+		color white
+		padding .4rem
+		border-radius .4rem
 
 .list li
 	background #eee
@@ -36,5 +42,6 @@ h2.currentScore
 
 .control .button.edit
 	float right
-	background red
+	simple-button(c-error)
+	color white
 

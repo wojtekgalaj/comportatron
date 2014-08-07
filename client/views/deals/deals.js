@@ -23,3 +23,9 @@ Template.newDeal.events({
 		$to.val('');
 	}
 })
+
+Template.newDeal.helpers({
+	deals: function () {
+		return Deals.find({createdBy: Meteor.userId()})
+	}
+})

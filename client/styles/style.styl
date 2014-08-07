@@ -4,122 +4,135 @@ global-reset()
 form()
 
 .inner
-	center(600px)
-	min-width 600px
+  center(600px)
+  min-width 600px
 
 @import 'partials/.colors.styl'
 
 body
-	font-family 'Lucida Grande'
-	font-size 16px
-	color c-accent
+  font-family 'Lucida Grande'
+  font-size 16px
+  color c-accent
 
 b
-	color black
+  color black
 
 a
-	text-decoration none
+  text-decoration none
 
 h1, h2, h3, h4
-	font-weight normal
+  font-weight normal
 
 h2
-	font-size 1.6rem
-	margin .2rem 0 1rem 0
+  font-size 1.6rem
+  margin .2rem 0 1rem 0
 
 p
-	margin 0 0 1rem 0
+  margin 0 0 1rem 0
 
 .right
-	text-align right
+  text-align right
 
 // Errors
 .errors .alert
-	position fixed
-	padding 1rem .8rem
-	background c-error
-	color white
-	font-size .9rem
-	margin .5rem 0
-	width 80%
-	button
-		display none // Or i need to wire it up, doesnt do anything without bootstrap
+  position fixed
+  padding 1rem .8rem
+  background c-error
+  color white
+  font-size .9rem
+  margin .5rem 0
+  width 80%
+  button
+    display none // Or i need to wire it up, doesnt do anything without bootstrap
 
 input
-	font-size .9rem
-	padding .5rem
+  font-size .9rem
+  padding .5rem
 
 // Buttons
 #login-buttons
-	float right
+  float right
 
 #login-dropdown-list
-	left -140px
+  left -140px
 
 button, .button
-	simple-button(c-main)
+  simple-button(c-main)
 
 button[type=submit]
-	margin 1rem auto
-	clear both
-	display block
-	width 20rem
-	text-align center
+  margin 1rem auto
+  clear both
+  display block
+  width 20rem
+  text-align center
 
 .bigLink
-	simple-button(c-main)
-	padding 2.5rem
-	font-size 2rem
-	display block
-	margin-top .5rem
+  simple-button(c-main)
+  padding 2.5rem
+  font-size 2rem
+  display block
+  margin-top .5rem
 
 .kidLinks
-	margin-bottom 2rem
+  margin-bottom 2rem
 
 .control
-	margin 1rem 0
-	button, .button
-		margin auto
+  margin 1rem 0
+  button, .button
+    margin auto
 
-		&.add
-			background c-contrast
-			color white
+    &.add
+      background c-contrast
+      color white
 
 header
-	padding 1rem 0
-	background c-accent
-	color white
-	padding-bottom 1rem
-	margin-bottom 1rem
-	border-bottom 5px solid white
-	.logo
-		font-family courier
-		background c-main
-		color c-accent
-		padding .8rem 1rem
-		display block
-		width 20px
-		border-radius .5rem
-		font-size 2rem
-		margin auto
-	a
-		&:hover
-			text-decoration underline
-	nav
-		margin 1rem 0
-		background c-main
-		a
-			display inline-block
-			padding .6rem
-			color c-accent
-			margin-right 1rem
+  padding 1rem 0
+  background c-accent
+  color white
+  padding-bottom 1rem
+  margin-bottom 1rem
+  border-bottom 5px solid white
+  .logo
+    font-family courier
+    background c-main
+    color c-accent
+    padding .8rem 1rem
+    display block
+    width 20px
+    border-radius .5rem
+    font-size 2rem
+    margin auto
+  a
+    &:hover
+      text-decoration underline
+  nav
+    margin 1rem 0
+    background c-main
+    a
+      display inline-block
+      padding .6rem
+      color c-accent
+      margin-right 1rem
 
 #login-dropdown-list a:hover
-	color black
+  color black
+
+.createPageList
+  li
+    margin .1rem 0
+    padding .8rem
+    background lighten(c-main, 20)
+    span
+      display inline-block
+      &.description
+        width 33rem
+      &.points
+        width 2rem
+
 
 footer
-	border-top 1px solid c-main
-	margin 2rem 0
-	padding 2rem 0
+  border-top 1px solid c-main
+  margin 2rem 0
+  padding 2rem 0
 
 
