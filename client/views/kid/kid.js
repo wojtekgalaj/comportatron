@@ -4,8 +4,10 @@ Template.showKid.helpers({
 			{createdBy: Meteor.userId()}
 		)
 	},
-	dealStatus: function (kidModel) {
-		var isReqMet = kidModel.score >= this.need;
+	dealStatus: function () {
+		var kidId = Session.get('currentKidId'),
+				kidModel = Kids.findOne({_id: kidId});
+				isReqMet = kidModel.score >= this.need;
 
 		return isReqMet ? 'reqMet' : 'reqNotMet'
 	},
@@ -18,7 +20,7 @@ Template.showKid.helpers({
 
 
 Template.showKid.events({
-	'click .deals button': function () {
+	'click .deals .remove': function () {
 		var kidId = Session.get('currentKidId');
 		Kids.update(
 			{_id: kidId},
