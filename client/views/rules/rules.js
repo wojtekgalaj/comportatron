@@ -1,12 +1,10 @@
-
-
-Template.rules.helpers({
+Template.newRule.helpers({
   allRules: function () {
     var userId = Meteor.userId();
     return Rules.find();
   }
 });
-Template.rules.events({
+Template.newRule.events({
   "submit form": function (ev) {
     ev.preventDefault();
     var thisAction = $('[name="thisAction"]').val(),
