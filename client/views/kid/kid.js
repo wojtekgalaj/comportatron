@@ -18,6 +18,19 @@ Template.showKid.helpers({
 	}
 })
 
+Template.scoredRule.helpers({
+	when: function () {
+		var actionScoredAt = this.createdAt,
+				thatMoment = moment(actionScoredAt, 'DD-MM-YYYY')
+				thisMomentString = moment().format('DD-MM-YYYY'),
+				thisMoment = moment(thisMomentString, 'DD-MM-YYYY');
+		console.log('thatMoment: ', thatMoment);
+		console.log('thisMoment: ', thisMoment);
+		console.log(thisMoment.diff(thatMoment, 'days'))
+		return "time"
+	}
+});
+
 
 Template.showKid.events({
 	'click .deals .remove': function () {

@@ -7,8 +7,10 @@ Template.newRule.helpers({
 Template.newRule.events({
   "submit form": function (ev) {
     ev.preventDefault();
-    var thisAction = $('[name="thisAction"]').val(),
-        isWorth = $('[name="isWorth"]').val(),
+    var $thisAction = $('[name="thisAction"]'),
+        thisAction = $thisAction.val(),
+        $isWorth = $('[name="isWorth"]'),
+        isWorth = $isWorth.val(),
         userId = Meteor.userId();
 
     if (!thisAction || !isWorth) {
@@ -20,6 +22,9 @@ Template.newRule.events({
       createdBy: userId,
       thisAction: thisAction,
       isWorth: parseInt(isWorth, 10)
-    })
+    });
+
+    $isWorth.val('');
+    $thisAction.val('').focus();
   }
 })
