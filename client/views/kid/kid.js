@@ -23,11 +23,23 @@ Template.scoredRule.helpers({
 		var actionScoredAt = this.createdAt,
 				thatMoment = moment(actionScoredAt, 'DD-MM-YYYY')
 				thisMomentString = moment().format('DD-MM-YYYY'),
-				thisMoment = moment(thisMomentString, 'DD-MM-YYYY');
-		console.log('thatMoment: ', thatMoment);
-		console.log('thisMoment: ', thisMoment);
-		console.log(thisMoment.diff(thatMoment, 'days'))
-		return "time"
+				thisMoment = moment(thisMomentString, 'DD-MM-YYYY'),
+				daysAgo = thisMoment.diff(thatMoment, 'days'),
+				niceAgo = '';
+
+		switch	(daysAgo) {
+			case 0:
+				niceAgo = 'Today';
+				break;
+			case 1:
+				niceAgo = 'Yesterday';
+				break;
+			default:
+				niceAgo = daysAgo + 'days ago';
+				break;
+		}
+
+		return niceAgo;
 	}
 });
 

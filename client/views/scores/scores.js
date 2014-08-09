@@ -4,30 +4,16 @@ Template.searchScores.rendered = function () {
    AutoCompletion.init("input#searchScores");
 }
 
-function ensureDoubleDigits (entry) {
-  return entry > 10 ? '' + entry : '0' + entry; 
-};
-
 function addScoreByDescription (description) {
   if (!description) Errors.throw("bla")
   var kidId = Session.get('currentKidId'),
       userId = Meteor.userId(),
       theRule = Rules.findOne({createdBy: userId, thisAction: description}),
       ruleScore,
-      momentCreated = moment(),
-      day = momentCreated.day(),
-      month = momentCreated.month(),
-      year = momentCreated.year(),
-      metaData;
-
-  day = ensureDoubleDigits(day);
-  month = ensureDoubleDigits(month);
-  year = ensureDoubleDigits(year);
-
-  metaData = {
-    createdAt: day + '-' + month + '-' + year  
-  }
-
+      momentCreated = moment().format('DD-MM-YYYY'),
+      metaData = {
+        createdAt: momentCreated
+      }
 
   if (!theRule) {
     Errors.throw("I dont know this rule.");
@@ -37,7 +23,6 @@ function addScoreByDescription (description) {
   ruleScore = theRule.isWorth;
   
   theRule = _.extend(theRule, metaData);
-  console.log('theRule ', theRule)
   Kids.update(
     {_id: kidId},
     {
