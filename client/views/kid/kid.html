@@ -1,16 +1,24 @@
 <template name="showKid">
   <div class="showKid">
-    <h2 class="currentScore">{{name}}'s current score is <span class="score">{{score}}</span></h2>
-    <div class="control">
+    <div class="kidsName">
+      <h2 class="kidsName">{{name}}'s page</h2>
+    </div>
+    <div class="score">
+      score
+      <span class="points">{{score}}</span>
+    </div>
+    <div class="control" style="padding-top: 1rem">
       <a href="/score/new" class="button">Update score</a>
       <a href="/kid/edit" class="button edit">Edit Kid</a>
     </div>
-    <h2 class="deals header">The Deals</h2>
-    <ul class="list deals">
-      {{#each deals}}
-        <li class="{{dealStatus}}">In order to {{to}} I need at least {{need}} points. <span class="remove">remove</span></li>
-      {{/each}}
-    </ul>
+    {{#if dealsCount }}
+      <h2 class="deals header">The Deals</h2>
+      <ul class="list deals">
+        {{#each deals}}
+          <li class="deal {{dealStatus}}">In order to {{to}} I need at least {{need}} points. <span class="remove">remove</span></li>
+        {{/each}}
+      </ul>
+    {{/if}}
     <h2 class="scores header">Last actions</h2>
     <ul class="list scores">
       {{#each scoredRules}}
@@ -21,7 +29,7 @@
 </template>
 
 <template name="scoredRule">
-  <li><span class="what">{{thisAction}}</span><span class="when">{{when}}</span><span class="score">{{isWorth}}</span></li>
+  <li class="score"><span class="what">{{thisAction}}</span><span class="when">{{when}}</span><span class="score">{{isWorth}}</span></li>
 </template>
 
 <template name="newKid">

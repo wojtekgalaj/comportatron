@@ -4,8 +4,8 @@ global-reset()
 form()
 
 .inner
-  center(600px)
-  min-width 600px
+  width 600px
+  margin 0 auto
 
 @import 'partials/.colors.styl'
 
@@ -26,6 +26,8 @@ h1, h2, h3, h4
 h2
   font-size 1.6rem
   margin .2rem 0 1rem 0
+  &.header
+    padding-top 2rem
 
 p
   margin 0 0 1rem 0
@@ -52,6 +54,7 @@ input
 // Buttons
 #login-buttons
   float right
+  font-size .6rem
 
 #login-dropdown-list
   left -140px
@@ -80,7 +83,6 @@ button[type=submit]
   margin 1rem 0
   button, .button
     margin auto
-
     &.add
       background c-contrast
       color white
@@ -128,6 +130,18 @@ header
         width 33rem
       &.points
         width 2rem
+
+
+.remove
+  cursor pointer
+  float right 
+  padding .5rem 2rem .8rem .2rem
+  margin-top -.3rem
+  display block
+  font-size .5rem
+  background url('/images/trash.png') center right no-repeat
+
+
 
 
 footer

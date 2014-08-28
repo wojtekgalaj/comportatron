@@ -4,6 +4,11 @@ Template.showKid.helpers({
 			{createdBy: Meteor.userId()}
 		)
 	},
+	
+	dealsCount: function () {
+		return Deals.find().count();
+	},
+	
 	dealStatus: function () {
 		var kidId = Session.get('currentKidId'),
 				kidModel = Kids.findOne({_id: kidId});
@@ -35,7 +40,7 @@ Template.scoredRule.helpers({
 				niceAgo = 'Yesterday';
 				break;
 			default:
-				niceAgo = daysAgo + 'days ago';
+				niceAgo = daysAgo + ' days ago';
 				break;
 		}
 
@@ -46,15 +51,9 @@ Template.scoredRule.helpers({
 
 Template.showKid.events({
 	'click .deals .remove': function () {
-		var kidId = Session.get('currentKidId');
-		Kids.update(
-			{_id: kidId},
-			{
-				$pull: {
-					deals: this
-				}
-			}
-		)
+		var idToRemove = this._id;
+
+		Deals.remove({_id: idToRemove});
 	}
 })
 
@@ -81,7 +80,7 @@ Template.newKid.events({
 			name: name,
 			createdBy: theId,
 			bootstrap: false,
-			score: 0,
+			score: 10,
 			deals: [],
 			scoredRules: []
 		});
@@ -109,7 +108,5 @@ Template.editKid.events({
 			{_id: currentKidId},
 			{$set: {name: newName}}
 		)
-
-
 	}
 })
